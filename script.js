@@ -42,3 +42,22 @@ personalMovieDB.movies[a] = b;
 personalMovieDB.movies[c] = d;
 
 console.log(personalMovieDB);
+
+// тернарный оператор
+const num = 50;
+(num === 50) ? console.log('ok') : console.log('error'); // если по условию да, то - ок, если нет, то - error
+
+switch (num) {
+    case 49:
+        console.log('неверно');
+        break; // остановить, если условие верно
+    case 100:
+        console.log('неверно');
+        break; // остановить, если условие верно
+    case 50:
+        console.log('верно');
+        break; // остановить, если условие верно
+    default:
+        console.log('не в этот раз');
+        break;
+}
