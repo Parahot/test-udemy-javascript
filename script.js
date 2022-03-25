@@ -45,7 +45,7 @@ console.log(personalMovieDB);
 
 // тернарный оператор
 const num = 50;
-(num === 50) ? console.log('ok') : console.log('error'); // если по условию да, то - ок, если нет, то - error
+(num === 50) ? console.log('ok') : console.log('ошибка'); // если по условию да, то - ок, если нет, то - error
 
 switch (num) {
     case 49:
@@ -60,4 +60,26 @@ switch (num) {
     default:
         console.log('не в этот раз');
         break;
+}
+
+let nomer = 50;
+// while (nomer < 55) {
+//     console.log(nomer);
+//     nomer++
+// }
+
+do {
+    console.log(nomer);
+    nomer++;
+}
+while (nomer < 55);
+
+for (let i = 1; i < 10; i++) {
+    if (i === 3) {
+        continue; // цикл пропустит 3 и пойдет дальше
+    }
+	if (i === 6) {
+        break; // цикл прервется на 5, не смотря на то что должен был идти до 9
+    }
+    console.log(i);
 }
