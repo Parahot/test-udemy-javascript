@@ -83,3 +83,19 @@ for (let i = 1; i < 10; i++) {
     }
     console.log(i);
 }
+
+// 17 урок - методы
+const str = 'test';
+console.log(str.toUpperCase()); // верхний регистр
+console.log(str);
+console.log(str.indexOf('st'));
+
+const logg = 'Hello world';
+console.log(logg.slice(6,11));
+
+const num = 12.2;
+console.log(Math.round(num)); // округлить 
+
+let fff = '12.2px';
+console.log(parseInt(fff)); // глобальный метод - переводит переменную в другой формат данных - просто в число 12
+console.log(parseFloat(fff)); // глобальный метод - переводит переменную в другой формат данных - просто в десятичное число 12.2
