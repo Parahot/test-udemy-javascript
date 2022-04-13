@@ -79,3 +79,24 @@ function writeYourGenres(aaa) {
     }
 }
 writeYourGenres(personalMovieDB.genres);
+
+// 19 урок - колбэк-ф-ии
+function first() {
+    setTimeout(function() {
+        console.log(1);
+    }, 5000); // отложить выполнение на 5 сек
+}
+function second() {
+    console.log(2);
+}
+first();
+second();
+
+function lernJS(lang, callback) {
+    console.log(`Я учу ${lang}`);
+    callback();
+}
+function done() {
+    console.log('Я прошел этот урок!');
+}
+lernJS('JavaScript', done);
