@@ -135,3 +135,33 @@ for (let key in options) {
 }
 // метод получения ключей и подсчет их количества
 console.log(Object.keys(options).length);
+
+// 23д занятие - нарисовать треуголник из звездочек - астерикс
+// мой:
+let result = '';
+for (let i = 0; i < 7; i++) {
+    result = result + '*';
+    console.log(result);
+}
+// Ивана
+let result2 = '';
+const length2 = 7;
+for (let i = 1; i < length2; i++) {
+    for (let j = 0; j < i; j++) {
+        result2 += '*';
+    }
+    result2 += '\n';
+}
+console.log(result2);
+
+// как внутри вложенного цикла перейти с следующей итерации главного цикла
+first: for (let i = 0; i < 3; i++) {
+    console.log(`First level: ${i}`);
+    for (let j = 0; j < 3; j++) {
+        console.log(`Second level: ${j}`);
+        for (let k = 0; k < 3; k++) {
+            if (k === 2) continue first; // перейти к метке first и продолжить (если будет break - то закончить) итерации
+            console.log(`Third level: ${k}`);
+        }
+    }
+}
