@@ -165,3 +165,82 @@ first: for (let i = 0; i < 3; i++) {
         }
     }
 }
+
+// 23(д) - 2
+
+// Место для первой задачи
+function firstTask() {
+    // Значения массива менять нельзя, тут он проверяется автоматически именно на эти значения
+    const arr = [3, 5, 8, 16, 20, 23, 50];
+    const result = [];
+
+    // Пишем решение вот тут
+    for (let i = 0; i < arr.length; i++) {
+        result[i] = arr[i];
+    }
+    console.log(result);
+    
+    
+    // Не трогаем
+    return result;
+}
+
+// Место для второй задачи
+function secondTask() {
+    // Значения массива менять нельзя, тут он проверяется автоматически именно на эти значения
+    const data = [5, 10, 'Shopping', 20, 'Homework'];
+
+    // Пишем решение вот тут
+    for (let i = 0; i < data.length; i++) {
+        if (typeof(data[i]) === 'string') {
+            data[i] = data[i] + ' - done';
+        } else {
+            data[i] = data[i]*2;
+        }
+    }
+    console.log(data);
+    
+    // Не трогаем
+    return data;
+}
+
+// Место для третьей задачи
+function thirdTask() {
+    // Значения массива менять нельзя, тут он проверяется автоматически именно на эти значения
+    const data = [5, 10, 'Shopping', 20, 'Homework'];
+    const result = [];
+
+    // Пишем решение вот тут
+    let j = data.length-1;
+    for (let i = 0; i < data.length; i++) {
+        result[i] = data[j];
+        j--;
+    }
+    console.log(result);
+    
+    // Не трогаем
+    return result;
+}
+
+// 23(д) - 3
+
+const lines = 5;
+let result = '';
+let zvezda = '*';
+let arr = [];
+let probel = '';
+let k = 0;
+// Проверяется именно переменная result, формируйте строку в ней
+for (let j = lines; j >= 0; j--){
+    arr[j] = probel;
+    probel += ' ';
+}
+console.log(arr);
+for (let i = 0; i <= 11; i++) {
+    if (i % 2 == 0) {
+        result += arr[k] + zvezda + '\n';
+        k++;
+    }
+    zvezda += '*';
+}
+console.log(result);
