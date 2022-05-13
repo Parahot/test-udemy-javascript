@@ -260,3 +260,60 @@ for (let i = 0; i <= lines; i++) {
 }
 
 console.log(result);
+
+// 27(д) - 3
+// Место для первой задачи
+function sayHello(imya) {
+    return 'Привет, ' + imya;
+}
+console.log(sayHello('Иван'));
+
+// Место для второй задачи
+function returnNeighboringNumbers(num) {
+    let arr = [num - 1, num, num + 1];
+    return arr;
+}
+console.log(returnNeighboringNumbers(5));
+
+// Место для третьей задачи
+function getMathResult(base, progress) {
+    if (typeof(progress) !== 'string' && progress > 0) {
+        let num = 0;
+        let str = '';
+        let str2 = '';
+        for (let i = 0; i < progress; i++) {
+            num += base;
+            if (i === progress-1) {
+                str = num;
+            } else {
+                str = num + '---';
+            }
+            str2 += str;
+        }
+        return str2;
+    } else {
+        return base;
+    }
+}
+console.log(getMathResult(3,-8));
+// или как в ответе:
+function getMathResult(num, times) {
+    if (typeof(times) !== 'number' || times <= 0) {
+        return num;
+    }
+
+    let str = '';
+
+    for (let i = 1; i <= times; i++) {
+        if (i === times) {
+            str += `${num * i}`;
+            // Тут без черточек в конце
+        } else {
+            str += `${num * i}---`;
+            // Это тоже самое, что и
+            // str = str + num * i + "---"
+        }
+    }
+
+    return str;
+}
