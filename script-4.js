@@ -317,3 +317,35 @@ function getMathResult(num, times) {
 
     return str;
 }
+
+// Упражнение по написанию кода 7
+// Место для первой задачи
+function calculateVolumeAndArea(num) {
+    if (typeof(num) == 'number' && num >0 && num % 1 == 0) {
+        let obem = num * num * num;
+        let ploschad = num * num * 6;
+        return `Объем куба: ${obem}, площадь всей поверхности: ${ploschad}`;
+    } else {
+        return 'При вычислении произошла ошибка';
+    }
+}
+console.log(calculateVolumeAndArea(5));
+
+// Место для второй задачи
+function getCoupeNumber(mesto) {
+    let sumMest = 4;
+    let i = 1;
+    if (typeof(mesto) == 'number' && mesto >= 0 && mesto % 1 == 0) {
+        if (mesto == 0 || mesto > 36) {
+            return "Таких мест в вагоне не существует";
+        } else {
+            for (; mesto > sumMest; i++) {
+                mesto -= sumMest;
+            }
+            return i;
+        }
+    } else {
+        return "Ошибка. Проверьте правильность введенного номера места";
+    }
+}
+console.log(getCoupeNumber('Hello'));
