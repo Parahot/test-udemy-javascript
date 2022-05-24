@@ -349,3 +349,45 @@ function getCoupeNumber(mesto) {
     }
 }
 console.log(getCoupeNumber('Hello'));
+
+// Упражнение по написанию кода 7
+// Место для первой задачи
+function getTimeFromMinutes(min) {
+    if (typeof(min) == 'number' && min >= 0 && min % 1 === 0) {
+        let chasy = Math.floor(min / 60); // округляет в меньшую сторону
+        let minuty = min - chasy * 60;
+        let chasyText = '';
+        let minText = '';
+        if ((chasy > 9 && chasy < 20) || chasy % 10 === 0 || (chasy % 10 > 4 && chasy % 10 <= 9)) {
+            chasyText = 'часов';
+        } else if (chasy % 10 > 1 && chasy % 10 < 5) {
+            chasyText = 'часа';
+        } else if (chasy % 10 == 1) {
+            chasyText = 'час';
+        }
+
+        if ((minuty > 9 && minuty < 20) || minuty % 10 === 0 || (minuty % 10 > 4 && minuty % 10 <= 9)) {
+            minText = 'минут';
+        } else if (minuty % 10 > 1 && minuty % 10 < 5) {
+            minText = 'минуты';
+        } else if (minuty % 10 == 1) {
+            minText = 'минута';
+        }
+        return `Это ${chasy} ${chasyText} и ${minuty} ${minText}`;
+    } else {
+        return 'Ошибка, проверьте данные';
+    }
+}
+console.log(getTimeFromMinutes(50));
+
+// Место для второй задачи
+function findMaxNumber(a, b, c, d) {
+    if (typeof(a) == 'number' && typeof(b) == 'number' && typeof(c) == 'number' && typeof(d) == 'number') {
+        let sravni1 = (a > b) ? a : b;
+        let sravni2 = (c > d) ? c : d;
+        return (sravni1 > sravni2) ? sravni1 : sravni2;
+    } else {
+        return 0;
+    }
+}
+console.log(findMaxNumber(1, 5, '6', '10'));
