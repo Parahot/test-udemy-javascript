@@ -391,3 +391,31 @@ function findMaxNumber(a, b, c, d) {
     }
 }
 console.log(findMaxNumber(1, 5, '6', '10'));
+
+// Упражнение по написанию кода 8
+function fib(fibonacci) {
+    let a = 0;
+    let b = 1;
+    let str = '0 1 ';
+    if (typeof(fibonacci) === 'number' && fibonacci % 1 == 0 && fibonacci > 0) {
+        if (fibonacci == 1){
+            return '0';
+        } else if (fibonacci == 2) {
+            return '0 1';
+        } else {
+            for (let i = 0; i < fibonacci-2; i++){
+                b += a;
+                if (i === fibonacci - 3){
+                    str += b;
+                } else {
+                    str += b + ' ';
+                }
+                a = b - a;
+            }
+        }
+        return str;
+    } else {
+        return '';
+    }
+}
+console.log(fib(7));
