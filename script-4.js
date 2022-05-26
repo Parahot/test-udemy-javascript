@@ -419,3 +419,30 @@ function fib(fibonacci) {
     }
 }
 console.log(fib(7));
+
+// 33 урок - Массивы и псевдомассивы
+const arr2 = [1, 2, 4, 5, 7, 10];
+arr2.push(12);
+
+// способ перебора 1
+// for (let i = 0; i < arr2.length; i++) {
+//     console.log(arr2[i]);
+// }
+// // способ перебора 2
+// for (let value of arr2) {
+//     console.log(value);
+// }
+// способ перебора 3 - через метод и колбэк-функции
+arr2.forEach(function(item, i, arr){
+    console.log(`${i}: ${item} внутри массива ${arr}`);
+});
+
+const str2 = 'aaa, bbb, ccc, ddd';
+const products = str2.split(", ");
+console.log(products);
+
+function compareNum(a, b){
+	return a - b;
+}
+let arr4 = [23, 11, 1, 34].sort(compareNum); // с колбэк-функцией compareNum сортирует элменты массива нормально, будет: 1, 11, 23, 34
+console.log(arr4);
