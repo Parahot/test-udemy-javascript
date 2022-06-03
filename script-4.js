@@ -446,3 +446,62 @@ function compareNum(a, b){
 }
 let arr4 = [23, 11, 1, 34].sort(compareNum); // с колбэк-функцией compareNum сортирует элменты массива нормально, будет: 1, 11, 23, 34
 console.log(arr4);
+
+// 35. передача по значению и по ссылке
+
+// передача примитивных типов данных происходит по значению
+let a = 5,
+    b = a; // теперь b = 5, и не зависит от дальнейших изменений в a
+
+// передача объектов происходит по ссылке
+let obj = {
+    a:5,
+    b:1,
+    c: {
+        x: 7,
+        y: 4
+    }
+};
+let copy = obj; // теперь copy по ссылке приравнивается к obj, и все изменения коснутся обоих объектов
+
+// 1. скопировать объект можно через функцию
+function copy2(mainObj) {
+    let objCopy = {};
+    for (let key in mainObj) {
+        objCopy[key] = mainObj[key];
+    }
+    return objCopy;
+}
+console.log(copy2(obj));
+// но это будет не глубокая копия объекта, а поверхостная, т.е. a и b - скопирут значения, а c - скопирует лишь ссылку на основной объект
+
+// 2. копирование через метод Object.assign
+let add = {
+    d: 17,
+    c: 20
+};
+let clone3 = Object.assign({}, add); // 1й аргумент - объект который изменяем, 2й аргумент - что добавляем
+clone3.d = 21;
+console.log(add);
+console.log(clone3);
+
+// 3. копирование массивов через метод slice
+let oldArr = ['a', 'b', 'c'];
+let newArr = oldArr.slice();
+newArr[1] = 'd';
+console.log(oldArr);
+console.log(newArr);
+
+// 4. копирование массивов с оператором разворота (работает в ES6)
+let video = ['youtube', 'vimeo', 'rutube'],
+    blogs = ['wordpress', 'livejournal', 'blogger'],
+    internet = [...video, ...blogs, 'vc', 'facebook']; // оператор разворота "..." развернул массивы на отдельные элементы
+console.log(internet);
+
+// 5. копирование объектов с оператором разворота (работает в ES9)
+let obj2 = {
+    a:12,
+    b:13
+};
+let copyObj2 = {...obj2};
+console.log(copyObj2);
