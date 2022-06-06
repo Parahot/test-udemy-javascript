@@ -505,3 +505,52 @@ let obj2 = {
 };
 let copyObj2 = {...obj2};
 console.log(copyObj2);
+
+// Упражнение по написанию кода 10
+const personalPlanPeter = {
+    name: "Peter",
+    age: "29",
+    skills: {
+        languages: ['ru', 'eng'],
+        programmingLangs: {
+            js: '20%',
+            php: '10%'
+        },
+        exp: '1 month'
+    }
+};
+
+// 10.1.
+function showExperience(plan) {
+    let obj = plan;
+    return obj.skills.exp;
+}
+console.log(showExperience(personalPlanPeter));
+
+// 10.2.
+function showProgrammingLangs(plan) {
+    let obj = plan.skills.programmingLangs;
+    let str = '';
+    
+    for (let key in obj){
+        if (key) {
+            str += `Язык ${key} изучен на ${obj[key]}` + '\n';
+        }
+    }
+    return str;
+}
+console.log(showProgrammingLangs(personalPlanPeter));
+
+// 10.3.
+personalPlanPeter.showAgeAndLangs = function (plan){
+    let age = plan.age;
+    let arr = plan.skills.languages;
+    let str = '';
+    for (let key in arr){
+        if(key){
+            str += arr[key] + ' ';
+        }
+    }
+    return `Мне ${age} и я владею языками: ${str.toUpperCase()}`;
+};
+console.log(personalPlanPeter.showAgeAndLangs(personalPlanPeter));
