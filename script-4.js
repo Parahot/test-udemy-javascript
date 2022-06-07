@@ -554,3 +554,26 @@ personalPlanPeter.showAgeAndLangs = function (plan){
     return `Мне ${age} и я владею языками: ${str.toUpperCase()}`;
 };
 console.log(personalPlanPeter.showAgeAndLangs(personalPlanPeter));
+
+// Упражнение по написанию кода 11
+const family = ['Peter', 'Ann', 'Alex', 'Linda'];
+function showFamily(arr) {
+    if (arr.length > 0) {
+        return `Семья состоит из: ${arr.join(' ')} `;
+    } else {
+        return 'Семья пуста';
+    }
+}
+console.log(showFamily(family));
+
+const favoriteCities = ['liSBon', 'ROME', 'miLan', 'Dublin'];
+function standardizeStrings(arr) {
+    let str = '';
+    if (arr.length > 0) {
+        for (let e of arr) {
+            str += e + '\n';
+        }
+    }
+    return console.log(str.toLowerCase().trim());
+}
+standardizeStrings(favoriteCities);
