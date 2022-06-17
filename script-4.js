@@ -577,3 +577,40 @@ function standardizeStrings(arr) {
     return console.log(str.toLowerCase().trim());
 }
 standardizeStrings(favoriteCities);
+
+// Упражнение по написанию кода 11
+// 3
+const someString = 'This is some strange string';
+
+function reverse(str) {
+    if (typeof(str) === 'string') {
+        let str2 = '';
+        for (let i = str.length-1; i >= 0; i--) {
+            str2 += str.substr(i,1);
+        }
+        return str2;
+    } else {
+        return 'Ошибка!';
+    }
+}
+console.log(reverse(someString));
+
+// 4
+const baseCurrencies = ['USD', 'EUR'];
+const additionalCurrencies = ['UAH', 'RUB', 'CNY'];
+let totalCurrencies = [...baseCurrencies, ...additionalCurrencies];
+
+function availableCurr(arr, missingCurr) {
+    let newArr = [];
+    for (let i = 0; i < arr.length; i++){
+        if (arr[i] === missingCurr) continue;
+        newArr.push(arr[i]);
+    }
+    if (newArr.length > 0) {
+        return 'Доступные валюты:\n' + newArr.join('\n') + '\n';
+    } else {
+        return 'Нет доступных валют';
+    }
+}
+console.log(availableCurr(totalCurrencies, 'CNY'));
+
