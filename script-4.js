@@ -24,7 +24,7 @@ function start () {
         numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
     }
 }
-start();
+//start();
 
 let personalMovieDB = {
     count: numberOfFilms,
@@ -78,7 +78,7 @@ function writeYourGenres(aaa) {
         aaa[i-1] = prompt(`Ваш любимый жанр под номером ${i}`, '');
     }
 }
-writeYourGenres(personalMovieDB.genres);
+//writeYourGenres(personalMovieDB.genres);
 
 // 19 урок - колбэк-ф-ии
 function first() {
@@ -224,8 +224,8 @@ function thirdTask() {
 
 // 23(д) - 3
 
-const lines = 5;
-let result = '';
+//const lines = 5;
+//let result = '';
 let zvezda = '*';
 let arr = [];
 let probel = '';
@@ -246,8 +246,8 @@ for (let i = 0; i <= 11; i++) {
 console.log(result);
 
 // или так:
-const lines = 5;
-let result = '';
+//const lines = 5;
+//let result = '';
 
 for (let i = 0; i <= lines; i++) {
     for (let j = 0; j < lines - i; j++) {
@@ -642,3 +642,87 @@ john.sayHello(); // Hello , т.е тоже умеет это делать бла
 // но обычно делают по другому - сразу создают джона с прототипным наследованием от общего солдата
 const john2 = Object.create(soldier);
 // в итоге получится тоже самое что и выше
+
+// 37 урок
+/* Задание на урок:
+
+1) У нас уже есть рабочее приложение, состоящее из отдельных функций. Представьте, что
+перед вами стоит задача переписать его так, чтобы все функции стали методами объекта personalMovieDB
+Такое случается в реальных продуктах при смене технологий или подхода к архитектуре программы
+
+2) Создать метод toggleVisibleMyDB, который при вызове будет проверять свойство privat. Если оно false - он
+переключает его в true, если true - переключает в false. Протестировать вместе с showMyDB.
+
+3) В методе writeYourGenres запретить пользователю нажать кнопку "отмена" или оставлять пустую строку. 
+Если он это сделал - возвращать его к этому же вопросу. После того, как все жанры введены - 
+при помощи метода forEach вывести в консоль сообщения в таком виде:
+"Любимый жанр #(номер по порядку, начиная с 1) - это (название из массива)"*/
+
+// Код возьмите из предыдущего домашнего задания
+
+let personalMovieDB2 = {
+    count: 0,
+    movies: {},
+    actors: {},
+    genres: [],
+    privat:false,
+    start: function () {
+        personalMovieDB2.count = +prompt('Сколько фильмов вы уже посмотрели?', '');
+    
+        while (personalMovieDB2.count == '' || personalMovieDB2.count == null || isNaN(personalMovieDB2.count)) {
+            personalMovieDB2.count = +prompt('Сколько фильмов вы уже посмотрели?', '');
+        }
+    },
+    rememberMyFilms: function() {
+        // цикл 1
+        for (let i = 0; i < 2; i++) {
+            const a = prompt ('Один из последних просмотренных фильмов?', ''),
+                b = prompt ('На сколько оцените его?', '');
+    
+            if (a != null && b != null && a != '' && b != '' && a.length < 50) {
+            personalMovieDB.movies[a] = b;
+            console.log('done');
+            } else {
+                console.log('error');
+                i--;
+            }
+        }
+    },
+    detectPersonalLevel: function() {
+        if (personalMovieDB.count < 10) {
+            alert('Просмотрено довольно мало фильмов');
+        } else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30) {
+            alert('Вы классический зритель');
+        } else if (personalMovieDB.count >= 30) {
+            alert('Вы киноман');
+        } else {
+            alert('Произошла ошибка');
+        }
+    },
+    showMyDB: function(hidden) {
+        if (!hidden) {
+            console.log(personalMovieDB);
+        }
+    },
+    toggleVisibleMyDB: function(){
+        if (personalMovieDB2.privat) {
+            personalMovieDB2.privat = false;
+        } else {
+            personalMovieDB2.privat = true;
+        }
+    },
+    writeYourGenres: function() {
+        for (let i=1; i<4; i++) {
+            let genre = prompt(`Ваш любимый жанр под номером ${i}`, '');
+            if (genre == '' || genre == null){
+                console.log('Вы ввели не то или ваще ничё не ввели');
+                i--;
+            } else {
+                personalMovieDB2.genres[i-1] = genre;
+            }
+        }
+        personalMovieDB2.genres.forEach((item, i) => {
+            console.log(`Любимый жанр #${i + 1} - это ${item}`);
+        });
+    }
+};
