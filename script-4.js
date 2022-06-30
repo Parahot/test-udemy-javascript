@@ -776,3 +776,29 @@ function isBudgetEnough(data) {
     }
 }
 isBudgetEnough(shoppingMallData);
+
+// Упражнение по написанию кода 14
+const students = ['Peter', 'Andrew', 'Ann', 'Mark', 'Josh', 'Sandra', 'Cris', 'Bernard', 'Takesi', 'Sam'];
+
+function sortStudentsByGroups(arr) {
+    let sortArr = arr.sort();
+    let iter = Math.floor(sortArr.length / 3);
+    let newArr = [];
+    let j = 0;
+    for (let i = 0; i <= iter; i++){
+        if (i < iter) {
+            newArr[i] = [sortArr[j], sortArr[j+1], sortArr[j+2]];
+            j += 3;
+        } else if (j === sortArr.length) {
+            newArr[i] = 'Оставшиеся студенты: -';
+        } else if (j + 1 === sortArr.length) {
+            newArr[i] = 'Оставшиеся студенты: ' + sortArr[j];
+        } else if (j + 2 === sortArr.length) {
+            newArr[i] = 'Оставшиеся студенты: ' + sortArr[j] + ', ' + sortArr[j+1];
+        }
+
+    }
+    console.log(newArr);
+    return newArr;
+}
+sortStudentsByGroups(students);
