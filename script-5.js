@@ -18,7 +18,7 @@ let student = {
         }],
         pro: [{
             name: 'Sam',
-            progress:10
+            progress: 10
         }],
 
         semi: {
@@ -49,7 +49,7 @@ function getTotalProgressByIteretion(data) {
 
                 for (let i = 0; i < subCourse.length; i++) {
                     total += subCourse[i].progress;
-                } 
+                }
             }
         }
     }
@@ -85,3 +85,34 @@ function getTotalProgressByRecursion(data) {
 const result = getTotalProgressByRecursion(student);
 
 console.log(result[0] / result[1]);
+
+// Упражнение по написанию кода 16
+// с рекурсией
+function factorial(n) {
+    if (n % 1 == 0 && n > 0 && typeof(n) == 'number') {
+        if (n > 1) {
+            n--;
+        } else {
+            return n;
+        }
+        return (n + 1) * factorial(n);
+    } else if ( n <= 0 ) {
+        return 1;
+    } else {
+        return 'Неверный ввод!';
+    }
+}
+console.log(factorial(0));
+// с циклом
+function factorial2(n) {
+    if (n % 1 == 0 && n > 0 && typeof (n) == 'number') {
+        let m = 1;
+        for (let i = 1; n >= i; i++) {
+            m = m * i;
+        }
+        return m;
+    } else {
+        return 'Неверный ввод!';
+    }
+}
+console.log(factorial2(-4));
